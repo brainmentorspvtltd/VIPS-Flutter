@@ -59,6 +59,20 @@ void main() {
 
 
 void main() {
+  // Defining the function 'add' that takes named parameters 'a', 'b', and 'c'.
+  add({int? a, int? b, int c = 0}) {
+    print("the sum is ${a! + b! + c}");
+  }
+
+  // Calling the 'add' function with named arguments 'a', 'b', and 'c'.
+  add(a: 1, b: 2, c: 5); // Output: "the sum is 8"
+  add(a: 1, b: 2); // Output: "the sum is 3"
+}
+
+
+
+
+void main() {
   // Defining an anonymous function (lambda) and assigning it to the variable 'add'
   var add = (a, b) {
     return a + b;
