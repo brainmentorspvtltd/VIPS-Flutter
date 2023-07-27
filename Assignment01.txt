@@ -1,0 +1,99 @@
+Check if a given number is Armstrong or not.
+
+import 'dart:io';
+import 'dart:math';
+
+void main() {
+  print("Enter number");
+  int num = int.parse(stdin.readLineSync().toString());
+  int digit = 0;
+  int sum = 0;
+  int temp = num;
+  int count = 0;
+
+  while (temp > 0) {
+    temp = temp ~/ 10;
+    count = count + 1;
+  }
+  temp = num;
+  print("count is $count");
+  while (temp > 0) {
+    digit = temp % 10;
+    sum = sum + pow(digit, count) as int;
+    temp = (temp ~/ 10);
+  }
+  if (num == sum) {
+    print("$num is Armstrong No.");
+  } else {
+    print("$num is not a Armstrong No.");
+  }
+}
+
+
+
+
+Check if a given number is a Prime number or not.
+
+import 'dart:io';
+
+bool isPrime(int num) {
+  for (int i = 2; i <= num / 2; i++) {
+    if (num % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void main() {
+  print("Enter any Number");
+  int num = int.parse(stdin.readLineSync().toString());
+  if (isPrime(num)) {
+    print("$num is a prime No.");
+  } else {
+    print("$num is not a Prime No.");
+  }
+}
+
+
+
+
+Write a Program to find Simple Interest.
+
+import 'dart:io';
+
+void main() {
+  print("Enter Amount");
+  double principalAmount = double.parse(stdin.readLineSync().toString());
+  print("Enter time in Year");
+  double time = double.parse(stdin.readLineSync().toString());
+  print("Enter Rate");
+  double rate = double.parse(stdin.readLineSync().toString());
+
+  double simpleInterest = (principalAmount * time * rate) / 100;
+  print("SimpleInterest is $simpleInterest");
+}
+
+
+
+
+
+Write a program to find the area of a rectangle and a square.
+
+
+
+import 'dart:io';
+
+void main() {
+  print("Enter the length of the Rectangle");
+  double length = double.parse(stdin.readLineSync().toString());
+  print("Enter the Width of the Rectangle");
+  double width = double.parse(stdin.readLineSync().toString());
+  double rectArea = length * width;
+  print("Area of the Ractangle is $Area");
+
+  print("Enter the Side of the Squre");
+  double side = double.parse(stdin.readLineSync().toString());
+  double area = side * side;
+  print("Area of Squre is $area");
+}
