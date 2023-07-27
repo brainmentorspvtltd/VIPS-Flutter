@@ -1,0 +1,128 @@
+Temperature Conversion (C to F and F to C)
+
+import 'dart:io';
+
+convertTemperature(double value, String unit, {String conversionUnit = "C"}) {
+  if (unit == "C" && conversionUnit == "F") {
+    return (value * 9 / 5) + 32;
+  } else if (unit == "F" && conversionUnit == "C") {
+    return (value - 32) * 5 / 9;
+  } else if (unit == conversionUnit && (unit == "C" || unit == "F")) {
+    return value;
+  }
+  return 0.0;
+}
+
+void main() {
+  print("Enter the temperature value:");
+  double value = double.parse(stdin.readLineSync().toString());
+
+  print("Enter the unit (C or F):");
+  String unit = stdin.readLineSync().toString().toUpperCase();
+
+  print("Enter the conversion unit (C or F, optional, default is C):");
+  String conversionUnit = stdin.readLineSync().toString().toUpperCase();
+
+  double result =
+      convertTemperature(value, unit, conversionUnit: conversionUnit);
+  if (result != 0) {
+    print("$value $unit is equal to $result $conversionUnit");
+  } else {
+    print("Invalid unit or conversion unit. Please use 'C' or 'F'.");
+  }
+}
+
+
+
+
+
+
+Factorial
+
+
+import 'dart:io';
+
+int factorial(int n) {
+  int result = 1;
+  for (int i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+void main() {
+  print("Enter a number:");
+  int num = int.parse(stdin.readLineSync().toString());
+  print(factorial(num));  // Should print the factorial of the entered number
+}
+
+
+
+Validate phone Number
+
+import 'dart:io';
+
+bool validatePhoneNumber(String phoneNumber) {
+  if (phoneNumber.startsWith("+91") && phoneNumber.length == 13) {
+    // Remove the "+91" prefix and check if the remaining characters are digits
+    String digits = phoneNumber.substring(3);
+    return int.tryParse(digits) != null;
+  } else {
+    return false;
+  }
+}
+
+void main() {
+  print("Enter a phone number (e.g., +91XXXXXXXXXX):");
+  String number = stdin.readLineSync().toString();
+
+  print(validatePhoneNumber(number) ? "The phone is Valid" : "Invalid Phone");
+}
+
+
+
+
+validate Email
+
+
+import 'dart:io';
+
+bool isValidDomain(String domain) {
+  List<String> validDomains = ["gmail.com", "yahoo.com"];
+  return validDomains.contains(domain);
+}
+
+bool validateEmailAddress(String emailAddress) {
+  // Split the email address into local part and domain part
+  List<String> parts = emailAddress.split('@');
+  if (parts.length != 2) {
+    return false;
+  }
+
+  String firstPart = parts[0];
+  String secondPart = parts[1];
+
+  if (firstPart.isEmpty ||
+      secondPart.isEmpty ||
+      firstPart.startsWith('.') ||
+      firstPart.endsWith('.') ||
+      secondPart.split('.').length >
+          2) //not checking subdomains such as (.edu.in)
+  {
+    return false;
+  }
+
+  if (!isValidDomain(secondPart)) {
+    //here combinations can be used
+    return false;
+  }
+
+  return true;
+}
+
+void main() {
+  print("Enter any email address:");
+  String email = stdin.readLineSync().toString();
+
+  print(validateEmailAddress(email) ? "Valid Email" : "Invalid Email");
+}
