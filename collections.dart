@@ -134,3 +134,28 @@ void main() {
   print(classAIML['YASH']!['rollNo']);
 }
 
+
+
+  Map<String, int> values = {"A": 1, "B": 2, "C": 3};
+  // values["A"] = 55;
+  // print("this is the value after adding 55 $values");
+  values = values.map((key, value) {
+    return MapEntry(key + "p", (value * value));
+  });
+
+  print("This is the value of the new map $values");
+}
+
+
+
+
+void main() {
+  Set set1 = {"A", "B", "C", "A", "B"};
+  String foldValue = set1.fold("cse", (previousValue, element) {
+    return element + previousValue;
+  });
+
+  print("THis is the fold value $foldValue");
+}
+
+
