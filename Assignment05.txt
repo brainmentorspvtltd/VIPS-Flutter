@@ -1,0 +1,7 @@
+Write a dart program to create a class Laptop with properties [id, name, ram] and create 3 objects of it and print all details.
+
+
+Create a Dart class called "Student" to store student information and marks in different subjects, and implement methods to calculate total marks and percentage, and display the marksheet.
+
+
+Create a class "Employee" to store employee information with properties "name" (string) and "salary" (integer). Implement methods to filter employees with salaries greater than 9000, find employees whose names start with 'A', and calculate the total salary. Use removeWhere, where, and fold functions in Dart.
